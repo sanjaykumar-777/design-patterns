@@ -7,8 +7,13 @@ public class Browser {
     private volatile static Browser browser;
 
     //2. private constructor to prevent/avoid object instantiation
+    /*
+    steps to handle reflections attack
+     */
     private Browser() {
-
+        if(browser!= null){
+                throw new IllegalArgumentException("object already exists");
+        }
     }
 
     //3.public static getInstance method of to provide access to the instance/object
