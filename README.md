@@ -28,8 +28,13 @@ To get started with this repository:
 
 1. **Private Constructor**
    - Prevents instantiation of the class from outside.
+   - Prevents new object creation from reflections attack.
+
    ```java
    private Browser() {
+     if(browser!= null){
+                throw new IllegalArgumentException("object already exists");
+        }
    }
    ```
 
