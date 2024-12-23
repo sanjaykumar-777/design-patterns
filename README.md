@@ -75,6 +75,10 @@ To get started with this repository:
        }
        return browser;
    }
+   
+   protected Object readResolve(){
+        return getInstance();
+    }
    ```
 
 #### Use Cases

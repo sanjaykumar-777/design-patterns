@@ -1,6 +1,9 @@
 package singletonpattern;
 
-public class Browser {
+import java.io.Serial;
+import java.io.Serializable;
+
+public class Browser implements Serializable {
     //1. private static instance of the class
     // Volatile ensures visibility of changes to the instance variable across threads
     //Best practice
@@ -65,6 +68,12 @@ public class Browser {
 
     public void displayHealth() {
         System.out.println("browser health");
+    }
+
+    //Add readResolve() - Which will be called during De-serialization process
+    //this will return class instance
+   protected Object readResolve(){
+        return getInstance();
     }
 
 }
